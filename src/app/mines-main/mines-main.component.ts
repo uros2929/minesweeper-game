@@ -44,4 +44,7 @@ export class MinesMainComponent implements OnInit {
       this.getSpotOfMineField()
     }
   }
+  placeNumbersOnField(){
+    
+  }
 }
