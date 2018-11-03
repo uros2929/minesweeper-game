@@ -8,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class MinesMainComponent implements OnInit {
 
   constructor() { }
+  rows=[];
+  randomNumRow = Math.round(Math.random() * 8);
+  randomNumCol = Math.round(Math.random() * 8);
   mineFieldRow = Object.keys(this.createBoard());
-  mineFieldCol=this.createBoardCol();
+  mineFieldCol = this.createBoardCol();
+
+
   ngOnInit() {
+ 
   }
 
   createBoard() {
-    let rows = []
     for (let i = 0; i < 9; i++) {
       let row = {
         spots: []
@@ -23,21 +28,33 @@ export class MinesMainComponent implements OnInit {
         let spot = {};
         row.spots.push(spot)
       }
-      rows.push(row)
+      this.rows.push(row)
     }
-    return rows;
+    return this.rows;
 
 
   }
-  createBoardCol(){
+  createBoardCol() {
     for (let index = 0; index < 9; index++) {
-     return this.createBoard()[index].spots
+      return this.createBoard()[index].spots
     }
   }
 
-  fieldClick(event){
+  fieldClick(event) {
     event.preventDefault();
-    event.target.parentElement.innerHTML=`<img _ngcontent-c1="" alt="aaa" src="empty.png">`
+    event.target.parentElement.innerHTML = `<img _ngcontent-c1="" alt="" src="empty.png">`
+    console.log(event)
   }
 
+  // putRandomMine() {
+  //   this.rows[this.randomNumRow].spots[this.randomNumCol] = "mine";
+  //   console.log(this.rows)
+  // }
+  // putManyMines(){
+  //   for (let index = 0; index < 10; index++) {
+  //     this.putRandomMine();
+  //     console.log(this.rows)
+  //   }
+  //}
 }
+
