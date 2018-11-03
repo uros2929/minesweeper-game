@@ -1,0 +1,10 @@
+<div class="minesMain">
+<table>
+  <tr *ngFor="let row of mineFieldRow">
+<td *ngFor="let col of mineFieldCol" (click)="fieldClick($event)">
+  <img src="src/assets/img/covered.png" alt="">
+{{col}}
+</td>
+  </tr>
+</table>
+</div>
