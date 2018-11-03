@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MinesMainComponent implements OnInit {
 
   constructor() { }
-  rows=[];
+  
   randomNumRow = Math.round(Math.random() * 8);
   randomNumCol = Math.round(Math.random() * 8);
   mineFieldRow = Object.keys(this.createBoard());
@@ -20,6 +20,7 @@ export class MinesMainComponent implements OnInit {
   }
 
   createBoard() {
+    let rows=[];
     for (let i = 0; i < 9; i++) {
       let row = {
         spots: []
@@ -28,9 +29,9 @@ export class MinesMainComponent implements OnInit {
         let spot = {};
         row.spots.push(spot)
       }
-      this.rows.push(row)
+      rows.push(row)
     }
-    return this.rows;
+    return rows;
 
 
   }
