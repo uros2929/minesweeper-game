@@ -11,7 +11,6 @@ export class MinesMainComponent implements OnInit {
   mineFieldRow = Object.keys(this.createBoard());
   mineFieldCol=this.createBoardCol();
   ngOnInit() {
- 
   }
 
   createBoard() {
@@ -22,7 +21,6 @@ export class MinesMainComponent implements OnInit {
       };
       for (let y = 0; y < 9; y++) {
         let spot = {};
-        spot=false;
         row.spots.push(spot)
       }
       rows.push(row)
@@ -39,8 +37,7 @@ export class MinesMainComponent implements OnInit {
 
   fieldClick(event){
     event.preventDefault();
-    event.target.innerText="true"
-console.log(event)
+    event.target.parentElement.innerHTML=`<img _ngcontent-c1="" alt="aaa" src="empty.png">`
   }
 
 }

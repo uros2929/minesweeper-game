@@ -2,8 +2,7 @@
 <table>
   <tr *ngFor="let row of mineFieldRow">
 <td *ngFor="let col of mineFieldCol" (click)="fieldClick($event)">
-  <img src="src/assets/img/covered.png" alt="">
-{{col}}
+  <img src="covered.png" alt="">
 </td>
   </tr>
 </table>
