@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MinesMainComponent implements OnInit {
  
   constructor() { }
-  randomNumRow=Math.round(Math.random()*4);
-  randomNumCol=Math.round(Math.random()*4);
+ 
   minefield={
     rows:[]
     
@@ -37,14 +36,14 @@ export class MinesMainComponent implements OnInit {
     return this.minefield
   }
   getSpotOfMineField(){
-    return this.minefield.rows[this.randomNumRow].spots[this.randomNumCol].content="boom";
+    let randomNumRow=Math.round(Math.random()*4),
+    randomNumCol=Math.round(Math.random()*4);
+    return this.minefield.rows[randomNumRow].spots[randomNumCol].content="boom";
   }
   placeMineOnSpot(){
     for (let index = 0; index < 10; index++) {
       this.getSpotOfMineField()
     }
   }
-  placeNumbersOnField(){
-    
-  }
+  
 }

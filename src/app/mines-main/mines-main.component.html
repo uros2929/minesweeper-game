@@ -4,7 +4,7 @@
 <td *ngFor="let spot of row.spots" (click)="spot.mine=false">
     <img src="assets/covered.png" alt="" *ngIf="spot.mine">
     <img src="assets/empty.png" alt="" *ngIf="!spot.mine && spot.content == 'noBoom'">
-    <img src="assets/mineB.png" alt="" *ngIf="!spot.mine && spot.content == 'Boom'">
+    <img src="../../assets/bomb.gif" alt="" *ngIf="!spot.mine && spot.content == 'Boom'">
 </td>
   </tr>
 </table>
