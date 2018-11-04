@@ -1,10 +1,21 @@
+
+<header>
+  <form action="?" method="post" (submit)="configGame($event)">
+    <input type="number" name="rows" placeholder="rows" disabled>
+    <input type="number" name="colums" placeholder="colums" disabled>
+    <input type="number" name="mines" placeholder="mines" disabled><br>
+    <input type="submit" value="Start game" disabled>
+  </form>
+  <h3>DISABLED FOR DEMO VERSION !</h3><br>
+  <h2>YOU CAN PLAY DEMO LEVEL ! HAVE FUN :)</h2>
+</header>
 <div class="minesMain">
 <table>
   <tr *ngFor="let row of minefield.rows">
-<td *ngFor="let spot of row.spots" (click)="onClick(spot)">
-    <img src="assets/covered.png" alt="" *ngIf="spot.mine">
-    <img src="assets/empty.png" alt="" *ngIf="!spot.mine && spot.content == 'noBoom'">
-    <img src="assets/mineB.png" alt="" *ngIf="!spot.mine && spot.content == 'boom'">
+<td *ngFor="let spot of row.spots" (click)="onClick(spot)" (contextmenu)="markMine($event,spot)">
+    <img src="assets/covered.png" alt="" *ngIf="spot.mine && spot.flag">
+    <img src="assets/empty.png" alt="" *ngIf="!spot.mine && spot.flag && spot.content == 'noBoom'">
+    <img src="assets/mine-wrong.png" alt="" *ngIf="!spot.mine && spot.content == 'boom'">
     <img src="assets/num-1.png" alt="" *ngIf="!spot.mine && spot.content == 1">
     <img src="assets/num-2.png" alt="" *ngIf="!spot.mine && spot.content == 2">
     <img src="assets/num-3.png" alt="" *ngIf="!spot.mine && spot.content == 3">
@@ -13,7 +24,17 @@
     <img src="assets/num-6.png" alt="" *ngIf="!spot.mine && spot.content == 6">
     <img src="assets/num-7.png" alt="" *ngIf="!spot.mine && spot.content == 7">
     <img src="assets/num-8.png" alt="" *ngIf="!spot.mine && spot.content == 8">
+    <img src="assets/flag-mine.png" alt="" *ngIf="!spot.flag==true">
 </td>
   </tr>
 </table>
+<br>
+<div id="gameOver">
+<h3 >Game over :(</h3>
+<button (click)="playAgain()">Play again</button>
+</div>
+<div id="youWon">
+    <h3>CONGRATULATIONS, YOU WON !!!</h3>
+    <button (click)="playAgain()">Play again</button>
+    </div>
 </div>
