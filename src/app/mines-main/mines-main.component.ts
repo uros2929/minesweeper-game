@@ -20,7 +20,7 @@ export class MinesMainComponent implements OnInit {
 
   ngOnInit() {
     this.startGame();
-    console.log(this.minefield)
+   console.log(this.minefield.rows)
   }
   // configGame(event) {
   //   event.preventDefault();
@@ -53,8 +53,11 @@ export class MinesMainComponent implements OnInit {
   }
   markMine(event,spot) {
     event.preventDefault();
-   spot.flag=false;
- 
+  if (spot.flag===true) {
+    spot.flag=false
+  }else if(spot.flag===false){
+    spot.flag=true;
+  }
   }
   createBoard() {
     for (let i = 0; i < 10; i++) {
